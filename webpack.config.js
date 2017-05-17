@@ -7,6 +7,7 @@ const config = {
         vendor: [
             'react',
             'react-dom',
+            'omnibar',
             'mathjs',
             'highlight.js',
         ],
@@ -45,28 +46,6 @@ const config = {
     resolve: {
         extensions: ['.js', '.ts', '.tsx'],
     },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: 'Infinity',
-        }),
-    ],
 };
-
-if (process.env.NODE_ENV === 'production') {
-    config.plugins.push(
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-        })
-    );
-} else {
-    config.plugins.push(
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development'),
-        })
-    );
-
-    config.devtool = 'cheap-module-source-map';
-}
 
 module.exports = config;

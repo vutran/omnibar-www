@@ -48,7 +48,7 @@ export default function NpmSearchExtension(query: string): Promise<Array<any>> {
     );
 
     return prom
-        .then(packages => packages.map(
+        .then((packages: Array<NpmItem>) => packages.map(
             item => ({
                 title: item.package.name,
                 url: item.package.links.npm,

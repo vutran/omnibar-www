@@ -4,10 +4,10 @@
   "description": "Repository for the omnibar website",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack-dev-server --inline",
-    "start": "npm run dev",
-    "deploy": "now --static && now alias"
+    "build": "webpack",
+    "dev": "webpack-dev-server -d --inline",
+    "start": "serve",
+    "deploy": "now && now alias"
   },
   "repository": {
     "type": "git",
@@ -47,9 +47,9 @@
     "highlight.js": "^9.11.0",
     "mathjs": "^3.13.1",
     "omnibar": "^0.2.1",
+    "serve": "^5.1.5",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "unfetch": "^2.1.2"
+    "react-dom": "^15.5.4"
   },
   "now": {
     "alias": "omnibar"
