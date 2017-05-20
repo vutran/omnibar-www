@@ -46,10 +46,10 @@
   "dependencies": {
     "highlight.js": "^9.11.0",
     "mathjs": "^3.13.1",
-    "omnibar": "^0.2.1",
-    "serve": "^5.1.5",
+    "omnibar": "^0.3.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "serve": "^5.1.5"
   },
   "now": {
     "alias": "omnibar"

@@ -1,5 +1,5 @@
 export default `
-export default function ResultItem(props) {
+export default function(props) {
     return (
         <div>
             <a href={props.item.url}>

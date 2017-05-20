@@ -16,6 +16,10 @@ pre {
     margin: 0px;
 }
 
+p {
+    margin-bottom: 15px;
+}
+
 #app {
     height: 100vh;
 }

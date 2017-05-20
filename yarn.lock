@@ -2267,13 +2267,9 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
-iconv-lite@0.4.15:
+iconv-lite@0.4.15, iconv-lite@~0.4.13:
   version "0.4.15"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
-
-iconv-lite@~0.4.13:
-  version "0.4.17"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.17.tgz#4fdaa3b38acbc2c031b045d0edcdfe1ecab18c8d"
 
 icss-replace-symbols@^1.0.2:
   version "1.0.2"
@@ -3098,9 +3094,9 @@ obuf@^1.0.0, obuf@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.1.tgz#104124b6c602c6796881a042541d36db43a5264e"
 
-omnibar@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/omnibar/-/omnibar-0.2.1.tgz#c5b98b91a8f32480d778fd9917ba1db5284ce77d"
+omnibar@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/omnibar/-/omnibar-0.3.0.tgz#4ee59692df63811f28f4bc9a0aaae484e7efb516"
 
 on-finished@~2.3.0:
   version "2.3.0"
