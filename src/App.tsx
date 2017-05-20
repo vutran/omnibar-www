@@ -71,7 +71,7 @@ export default class App extends React.Component<Props, State> {
                             <h2>Example 1 - Math</h2>
                             <p>At the most simplest level, your extension is just a function that returns a list of items. Go ahead and type a math expression such as <em>1 + 1</em> or <em>10 miles to km</em>.</p>
                             <Omnibar
-                                placeholder="Enter an expression"
+                                placeholder={`Enter an expression (eg: "10+32")`}
                                 extensions={[MathExtension]} />
                         </header>
                         <Editor
@@ -86,7 +86,7 @@ export default class App extends React.Component<Props, State> {
                             <h2>Example 2 - NPM Search</h2>
                             <p>Extensions can return a <em>Promise</em> and Omnibar will support them. The example below makes a fetch request to the NPM API to retrieve relevant packages based on the given query.</p>
                             <Omnibar
-                                placeholder="Search npm packages"
+                                placeholder={`Search npm packages (eg: "left-pad")`}
                                 maxResults={10}
                                 maxViewableResults={5}
                                 extensions={[NpmSearchExtension]} />
@@ -103,7 +103,7 @@ export default class App extends React.Component<Props, State> {
                             <h2>Example 3 - GitHub Search</h2>
                             <p>You can customize the look of your output by creating a custom result item renderer which is just a function that returns your rendered component.</p>
                             <Omnibar
-                                placeholder="Search GitHub repositories"
+                                placeholder={`Search GitHub repositories (eg: "react")`}
                                 maxResults={10}
                                 maxViewableResults={5}
                                 extensions={[GitHubSearchExtension]}
@@ -121,9 +121,9 @@ export default class App extends React.Component<Props, State> {
                         <header className="block-header">
                             <h2>Example 4 - Multiple Search</h2>
                             <p>You can combine all your extensions and serve them all at once to create a rich and powerful search experience.</p>
-                            <p>Omnibar also comes packed with a built-in helper function to wrap your extension behind a command filter. (eg: "gh omnibar" will trigger a GitHub search and "npm omnibar" will trigger an npm search).</p>
+                            <p>Omnibar also comes packed with a built-in helper function to wrap your extension behind a command filter. (eg: "gh react" will trigger a GitHub search and "npm left-pad" will trigger an npm search).</p>
                             <Omnibar
-                                placeholder="Search npm, GitHub, or calculate something..."
+                                placeholder={`Search anything (eg: "npm left-pad", or "gh react", or "10 miles to km")`}
                                 maxResults={10}
                                 maxViewableResults={5}
                                 extensions={[
