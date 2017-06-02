@@ -3094,9 +3094,9 @@ obuf@^1.0.0, obuf@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.1.tgz#104124b6c602c6796881a042541d36db43a5264e"
 
-omnibar@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/omnibar/-/omnibar-0.3.0.tgz#4ee59692df63811f28f4bc9a0aaae484e7efb516"
+omnibar@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/omnibar/-/omnibar-0.5.1.tgz#74928598b5734b8939bbf1ac2592dde2b191a0a7"
 
 on-finished@~2.3.0:
   version "2.3.0"

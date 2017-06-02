@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Omnibar from 'omnibar';
-import { command } from 'omnibar';
+import { command, withVoice } from 'omnibar';
 import MathExtension from './extensions/MathExtension';
 import NpmSearchExtension from './extensions/NpmSearchExtension';
 import GitHubSearchExtension from './extensions/GitHubSearchExtension';
@@ -12,6 +12,8 @@ import Editor from './Editor';
 
 interface Props {}
 interface State {}
+
+const VoiceOmnibar = withVoice(Omnibar);
 
 function ResultItem(props: { item: any }) {
     return (
@@ -119,10 +121,11 @@ export default class App extends React.Component<Props, State> {
 
                     <div className="block full">
                         <header className="block-header">
-                            <h2>Example 4 - Multiple Search</h2>
+                            <h2>Example 4 - Multiple Search with Voice</h2>
                             <p>You can combine all your extensions and serve them all at once to create a rich and powerful search experience.</p>
                             <p>Omnibar also comes packed with a built-in helper function to wrap your extension behind a command filter. (eg: "gh react" will trigger a GitHub search and "npm left-pad" will trigger an npm search).</p>
-                            <Omnibar
+                            <p>You can also enhance your Omnibar with voice capabilities (where supported).</p>
+                            <VoiceOmnibar
                                 placeholder={`Search anything (eg: "npm left-pad", or "gh react", or "10 miles to km")`}
                                 maxResults={10}
                                 maxViewableResults={5}
