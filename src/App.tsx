@@ -10,23 +10,30 @@ import githubSearch from './examples/github-search';
 import multiSearch from './examples/multi-search';
 import Editor from './Editor';
 
-interface Props {}
-interface State {}
+interface Props { }
+interface State { }
+
+interface Item {
+    title: string;
+    subtitle: string;
+    url: string;
+    image: string;
+}
 
 const VoiceOmnibar = withVoice(Omnibar);
 
-function ResultItem(props: { item: any }) {
+const ResultItem: Omnibar.ResultRenderer<Item> = ({ item }: { item: Item }) => {
     return (
         <div style={{ display: 'flex', paddingLeft: 15, paddingRight: 15, color: '#000', textAlign: 'left' }}>
-            <a href={props.item.url} style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}>
-                {props.item.image && (
+            <a href={item.url} style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}>
+                {item.image && (
                     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: 30, marginRight: 15 }}>
-                        <img src={props.item.image} width={30} height={30} />
+                        <img src={item.image} width={30} height={30} />
                     </div>
                 )}
                 <div style={{ flexGrow: 1 }}>
-                    <h2 style={{ fontSize: 16, fontWeight: 'bold', lineHeight: 2, marginTop: 0, marginBottom: 0 }}>{props.item.title}</h2>
-                    <h3 style={{ color: '#bbb', fontSize: 11, lineHeight: 1, marginTop: 0, marginBottom: 0 }}>{props.item.subtitle}</h3>
+                    <h2 style={{ fontSize: 16, fontWeight: 'bold', lineHeight: 2, marginTop: 0, marginBottom: 0 }}>{item.title}</h2>
+                    <h3 style={{ color: '#bbb', fontSize: 11, lineHeight: 1, marginTop: 0, marginBottom: 0 }}>{item.subtitle}</h3>
                 </div>
             </a>
         </div>
