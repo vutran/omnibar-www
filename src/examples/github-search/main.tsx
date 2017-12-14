@@ -13,8 +13,9 @@ ReactDOM.render(
             maxViewableResults={5}
             extensions={[
                 GitHubSearchExtension,
-            ]}
-            resultRenderer={ResultItem} />
+            ]}>
+            ({ items }) => <div>{items.map(ResultItem)}</div>
+        </Omnibar>
     </div>,
     document.getElementById('app')
 );

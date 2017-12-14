@@ -19,8 +19,9 @@ ReactDOM.render(
                 GitHubSearchExtension,
                 MathExtension,
                 NpmSearchExtension,
-            ]}
-            resultRenderer={ResultItem} />
+            ]}>
+            ({ items }) => <div>{items.map(ResultItem)}</div>
+        </VoiceOmnibar>
     </div>,
     document.getElementById('app')
 );
