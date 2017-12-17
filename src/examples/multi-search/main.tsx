@@ -20,7 +20,7 @@ ReactDOM.render(
                 MathExtension,
                 NpmSearchExtension,
             ]}>
-            ({ items }) => <div>{items.map(ResultItem)}</div>
+            {ResultItem}
         </VoiceOmnibar>
     </div>,
     document.getElementById('app')

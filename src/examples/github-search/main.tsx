@@ -14,7 +14,7 @@ ReactDOM.render(
             extensions={[
                 GitHubSearchExtension,
             ]}>
-            ({ items }) => <div>{items.map(ResultItem)}</div>
+            {ResultItem}
         </Omnibar>
     </div>,
     document.getElementById('app')
