@@ -24,23 +24,35 @@ const VoiceOmnibar = withVoice(Omnibar);
 
 interface ResultItemProps<T> {
     item: T;
+    isSelected: boolean;
+    isHighlighted: boolean;
 }
 
 const ResultItem = <T extends Item>(
     props: ResultItemProps<T> & React.HTMLAttributes<HTMLDivElement>
 ) => {
-    const { item, style, children, ...rest } = props;
+    const { item, isSelected, isHighlighted, style, children, ...rest } = props;
 
     const mergedStyles: React.CSSProperties = {
         ...style,
         ...{
             display: 'flex',
-            paddingLeft: 15,
-            paddingRight: 15,
+            padding: 15,
             color: '#000',
             textAlign: 'left',
+            borderLeft: '1px solid #e1e1e1',
+            borderRight: '1px solid #e1e1e1',
+            borderBottom: '1px solid #e1e1e1',
         },
     };
+
+    if (isSelected) {
+        mergedStyles.backgroundColor = '#f8f8f8';
+    }
+
+    if (isHighlighted) {
+        mergedStyles.backgroundColor = '#e1e1e1';
+    }
 
     return (
         <div style={mergedStyles} {...rest}>
