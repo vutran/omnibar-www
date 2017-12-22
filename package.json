@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "format": "npm run format:js && npm run format:md",
-    "format:js": "prettier --write '{*.js,*.json,{src,__tests__,typings}/**/*.ts{,x}}'",
+    "format:js": "prettier --write '{*.js,*.json,{src,__tests__}/**/*.ts{,x}}'",
     "format:md": "prettier --parser markdown --write '*.md'",
     "precommit": "lint-staged",
     "dev": "webpack-dev-server -d --inline",
