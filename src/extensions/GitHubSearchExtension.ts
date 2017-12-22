@@ -14,7 +14,7 @@ interface GitHubResponse {
     total_count: number;
     incomplete_results: boolean;
     items: Array<GitHubItem>;
-};
+}
 
 const FETCH_CACHE: { [id: string]: Promise<GitHubResponse> } = {};
 
@@ -26,7 +26,9 @@ const FETCH_CACHE: { [id: string]: Promise<GitHubResponse> } = {};
  * @param {string} query
  * @param {Promise}
  */
-export default function GitHubSearchExtension(query: string): Promise<Array<any>> {
+export default function GitHubSearchExtension(
+    query: string
+): Promise<Array<any>> {
     const options = {
         headers: {
             Accept: 'application/vnd.github.vutran-omnibar+json',
@@ -34,20 +36,19 @@ export default function GitHubSearchExtension(query: string): Promise<Array<any>
     };
 
     // retrieves from cache makes a new fetch request (and cache)
-    const prom = FETCH_CACHE[query] || (
-        FETCH_CACHE[query] = fetch<GitHubResponse>(
+    const prom =
+        FETCH_CACHE[query] ||
+        (FETCH_CACHE[query] = fetch<GitHubResponse>(
             `https://api.github.com/search/repositories?q=${query}`,
-            options,
-        )
-    )
-
-    return prom
-        .then(resp => resp.items.map(
-            item => ({
-                title: item.full_name,
-                subtitle: item.html_url,
-                image: item.owner.avatar_url,
-                url: item.html_url,
-            }),
+            options
         ));
+
+    return prom.then(resp =>
+        resp.items.map(item => ({
+            title: item.full_name,
+            subtitle: item.html_url,
+            image: item.owner.avatar_url,
+            url: item.html_url,
+        }))
+    );
 }

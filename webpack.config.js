@@ -4,13 +4,7 @@ const webpack = require('webpack');
 const config = {
     entry: {
         main: path.resolve(__dirname, './main'),
-        vendor: [
-            'react',
-            'react-dom',
-            'omnibar',
-            'mathjs',
-            'highlight.js',
-        ],
+        vendor: ['react', 'react-dom', 'omnibar', 'mathjs', 'highlight.js'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -28,18 +22,18 @@ const config = {
                     {
                         loader: 'ts-loader',
                         options: {
-                            configFileName: path.resolve(__dirname, 'tsconfig.json'),
+                            configFileName: path.resolve(
+                                __dirname,
+                                'tsconfig.json'
+                            ),
                         },
-                    }
+                    },
                 ],
                 exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
+                use: ['style-loader', 'css-loader'],
             },
         ],
     },

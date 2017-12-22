@@ -43,16 +43,15 @@ const URL = 'https://api.npms.io/v2/search/suggestions';
  */
 export default function NpmSearchExtension(query: string): Promise<Array<any>> {
     // retrieves from cache makes a new fetch request (and cache)
-    const prom = FETCH_CACHE[query] || (
-        FETCH_CACHE[query] = fetch<NpmResponse>(`${URL}?q=${query}&size=10`)
-    );
+    const prom =
+        FETCH_CACHE[query] ||
+        (FETCH_CACHE[query] = fetch<NpmResponse>(`${URL}?q=${query}&size=10`));
 
-    return prom
-        .then((packages: Array<NpmItem>) => packages.map(
-            item => ({
-                title: item.package.name,
-                subtitle: item.package.description,
-                url: item.package.links.npm,
-            }),
-        ));
+    return prom.then((packages: Array<NpmItem>) =>
+        packages.map(item => ({
+            title: item.package.name,
+            subtitle: item.package.description,
+            url: item.package.links.npm,
+        }))
+    );
 }

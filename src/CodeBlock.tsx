@@ -19,7 +19,11 @@ export default function CodeBlock(props: Props) {
     const highlighted = hljs.highlightAuto(text);
     return (
         <pre {...rest}>
-            <code style={{ padding: 30 }} className="hljs js" dangerouslySetInnerHTML={{ __html: highlighted.value }} />
+            <code
+                style={{ padding: 30 }}
+                className="hljs js"
+                dangerouslySetInnerHTML={{ __html: highlighted.value }}
+            />
         </pre>
     );
 }

@@ -24,7 +24,10 @@ export function fetch<T>(url: string, options?: FetchOptions): Promise<T> {
     return new Promise(
         (resolve: (val: T) => void, reject: (msg: string) => void) => {
             const xhr = new XMLHttpRequest();
-            const qs = (options && options.params) ? `?${querystring.stringify(options.params)}` : '';
+            const qs =
+                options && options.params
+                    ? `?${querystring.stringify(options.params)}`
+                    : '';
 
             xhr.open('GET', `${url}${qs}`, true);
 
@@ -59,4 +62,3 @@ export function active(compare: boolean, className: string): string {
         return className;
     }
 }
-
