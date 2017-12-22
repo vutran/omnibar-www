@@ -25,7 +25,7 @@ export default class Editor extends React.Component<Props, State> {
 
     switchTab = (evt: any) => {
         this.setState({ tab: evt.target.id });
-    }
+    };
 
     componentWillMount() {
         this.setState({ tab: this.props.tabs[0].filename });
@@ -35,20 +35,29 @@ export default class Editor extends React.Component<Props, State> {
         return (
             <div>
                 <div className="tab-nav">
-                    { this.props.tabs.map((tab) => (
+                    {this.props.tabs.map(tab => (
                         <button
                             key={tab.filename}
                             type="button"
                             id={tab.filename}
-                            className={active(this.state.tab === tab.filename, 'active')}
-                            onClick={this.switchTab}>
+                            className={active(
+                                this.state.tab === tab.filename,
+                                'active'
+                            )}
+                            onClick={this.switchTab}
+                        >
                             {tab.filename}
                         </button>
-                    )) }
+                    ))}
                 </div>
-                { this.props.tabs.map((tab) => (
-                    this.state.tab === tab.filename && <CodeBlock key={tab.filename} className="editor">{tab.code}</CodeBlock>)
-                ) }
+                {this.props.tabs.map(
+                    tab =>
+                        this.state.tab === tab.filename && (
+                            <CodeBlock key={tab.filename} className="editor">
+                                {tab.code}
+                            </CodeBlock>
+                        )
+                )}
             </div>
         );
     }
