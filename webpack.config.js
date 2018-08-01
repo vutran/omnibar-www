@@ -22,7 +22,7 @@ const config = {
                     {
                         loader: 'ts-loader',
                         options: {
-                            configFileName: path.resolve(
+                            configFile: path.resolve(
                                 __dirname,
                                 'tsconfig.json'
                             ),
