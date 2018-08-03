@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Omnibar from 'omnibar';
-import { command, withVoice } from 'omnibar';
+import { command, compose, withExtensions, withVoice } from 'omnibar';
 import MathExtension from './extensions/MathExtension';
 import NpmSearchExtension from './extensions/NpmSearchExtension';
 import GitHubSearchExtension from './extensions/GitHubSearchExtension';
@@ -14,7 +14,17 @@ import ResultItem from './ResultItem';
 interface Props {}
 interface State {}
 
-const VoiceOmnibar = withVoice(Omnibar);
+const Omnibar1 = withExtensions([MathExtension])(Omnibar);
+const Omnibar2 = withExtensions([NpmSearchExtension])(Omnibar);
+const Omnibar3 = withExtensions([GitHubSearchExtension])(Omnibar);
+const Omnibar4 = compose(
+    withVoice,
+    withExtensions([
+        command(GitHubSearchExtension, 'gh'),
+        command(NpmSearchExtension, 'npm'),
+        MathExtension,
+    ])
+)(Omnibar);
 
 export default class App extends React.Component<Props, State> {
     render() {
@@ -75,9 +85,8 @@ export default class App extends React.Component<Props, State> {
                                 ahead and type a math expression such as{' '}
                                 <em>1 + 1</em> or <em>10 miles to km</em>.
                             </p>
-                            <Omnibar
+                            <Omnibar1
                                 placeholder={`Enter an expression (eg: "10+32")`}
-                                extensions={[MathExtension]}
                             />
                         </header>
                         <Editor
@@ -100,11 +109,10 @@ export default class App extends React.Component<Props, State> {
                                 makes a fetch request to the NPM API to retrieve
                                 relevant packages based on the given query.
                             </p>
-                            <Omnibar
+                            <Omnibar2
                                 placeholder={`Search npm packages (eg: "left-pad")`}
                                 maxResults={10}
                                 maxViewableResults={5}
-                                extensions={[NpmSearchExtension]}
                             />
                         </header>
                         <Editor
@@ -127,11 +135,10 @@ export default class App extends React.Component<Props, State> {
                                 just a function that returns your rendered
                                 component.
                             </p>
-                            <Omnibar
+                            <Omnibar3
                                 placeholder={`Search GitHub repositories (eg: "react")`}
                                 maxResults={10}
                                 maxViewableResults={5}
-                                extensions={[GitHubSearchExtension]}
                                 render={ResultItem}
                             />
                         </header>
@@ -172,15 +179,10 @@ export default class App extends React.Component<Props, State> {
                                 You can also enhance your Omnibar with voice
                                 capabilities (where supported).
                             </p>
-                            <VoiceOmnibar
+                            <Omnibar4
                                 placeholder={`Search anything (eg: "npm left-pad", or "gh react", or "10 miles to km")`}
                                 maxResults={10}
                                 maxViewableResults={5}
-                                extensions={[
-                                    command(GitHubSearchExtension, 'gh'),
-                                    command(NpmSearchExtension, 'npm'),
-                                    MathExtension,
-                                ]}
                                 render={ResultItem}
                             />
                         </header>
