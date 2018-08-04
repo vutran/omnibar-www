@@ -17,9 +17,6 @@ const config = {
                 test: /\.tsx?$/,
                 use: [
                     {
-                        loader: 'babel-loader',
-                    },
-                    {
                         loader: 'ts-loader',
                         options: {
                             configFile: path.resolve(
