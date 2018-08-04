@@ -10,8 +10,7 @@
     "format:md": "prettier --parser markdown --write '*.md'",
     "precommit": "lint-staged",
     "dev": "webpack-dev-server -d --inline",
-    "start": "serve",
-    "deploy": "now && now alias"
+    "start": "serve"
   },
   "lint-staged": {
     "{*.js,{src,__tests__}/**/*.ts{,x}}": [
