@@ -4,10 +4,11 @@
   "description": "Repository for the omnibar website",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p",
     "format": "npm run format:js && npm run format:md",
     "format:js": "prettier --write '{*.js,*.json,{src,__tests__}/**/*.ts{,x}}'",
     "format:md": "prettier --parser markdown --write '*.md'",
+    "prepublish": "webpack -p --outputPath dist",
     "precommit": "lint-staged",
     "dev": "webpack-dev-server -d --inline",
     "start": "serve"

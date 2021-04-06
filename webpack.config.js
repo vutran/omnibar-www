@@ -7,9 +7,9 @@ const config = {
         vendor: ['react', 'react-dom', 'omnibar', 'mathjs', 'highlight.js'],
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public', 'dist'),
         filename: '[name].bundle.js',
-        publicPath: '/dist/',
+        publicPath: 'public/dist',
     },
     module: {
         rules: [
